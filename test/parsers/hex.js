@@ -1,12 +1,12 @@
 var assert = require('assert');
 var expect = require('chai').expect;
-var hexToRgb = require('../src/hexToRgb').hexToRgb
+var parseHex = require('../../src/parsers/hex').parse
 
-describe('hexToRgb', function() {
+describe('parse hex', function() {
   describe('converting valid colors', function() {
     it('should convert black', function() {
       var color = '#000000';
-      var result = hexToRgb(color);
+      var result = parseHex(color);
       var expectedResult = {
         r: 0,
         g: 0,
@@ -18,7 +18,7 @@ describe('hexToRgb', function() {
 
     it('should convert white', function() {
       var color = '#ffffff';
-      var result = hexToRgb(color);
+      var result = parseHex(color);
       var expectedResult = {
         r: 255,
         g: 255,
@@ -30,7 +30,7 @@ describe('hexToRgb', function() {
 
     it('should convert red', function() {
       var color = '#ff0000';
-      var result = hexToRgb(color);
+      var result = parseHex(color);
       var expectedResult = {
         r: 255,
         g: 0,
@@ -44,7 +44,7 @@ describe('hexToRgb', function() {
   describe('converting invalid colors', function() {
     it('should return null', function() {
       var color = '#gahsrgas';
-      var result = hexToRgb(color);
+      var result = parseHex(color);
       var expectedResult = null
 
       expect(result).to.equal(expectedResult)

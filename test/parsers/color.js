@@ -1,6 +1,6 @@
 var assert = require('assert');
 var expect = require('chai').expect;
-var isDarkColor = require('../src/isDarkColor').isDarkColor
+var isDarkColor = require('../../src/parsers/color').parse
 
 describe('isDarkColor', function() {
   describe('testing dark colors', function() {

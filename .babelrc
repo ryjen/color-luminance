@@ -1,6 +1,13 @@
 {
-  "presets": ["es2015"],
+  "presets": ["@babel/preset-env", "@babel/preset-flow"],
   "plugins": [
-    "add-module-exports"
+    ["module-resolver", {
+      "root": ["./src"],
+      "alias": {
+        "types": "./src/types",
+        "matchers": "./src/matchers",
+        "parsers": "./src/parsers"
+      }
+    }]
   ]
 }
