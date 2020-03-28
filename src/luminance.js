@@ -1,4 +1,4 @@
-import type RGBA from "types"
+import type { RGBA, Options } from "types"
 import parse from "parsers"
 import { isOverriden } from "./options"
 

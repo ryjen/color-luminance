@@ -2,7 +2,7 @@ import type { RGBA } from "types"
 import match from "matchers/hex"
 
 // credits go to https://stackoverflow.com/a/5624139/491075
-const parse = (hex): ?RGBA => {
+const parse = (hex: string): ?RGBA => {
     const result = match(hex)
 
   if (!result || result.length < 3) {

@@ -1,7 +1,7 @@
 import type { RGBA } from "types"
 import match from "matchers/rgb"
 
-const parse = (color): ?RGBA => {
+const parse = (color: string): ?RGBA => {
     const values = match(color)
 
     if (!values || values.length < 3) {
@@ -11,8 +11,7 @@ const parse = (color): ?RGBA => {
     const r = parseInt(values[0])
     const g = parseInt(values[1])
     const b = parseInt(values[2])
-
-    const a = (values.length > 3) ? values[3] : 0
+    const a = 0;
 
     return { r, g, b, a }
 }
