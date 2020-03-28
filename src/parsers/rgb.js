@@ -1,24 +1,20 @@
-import type { RGBA } from 'types'
+import type { RGBA } from "types"
+import match from "matchers/rgb"
 
-const parse = (color) => {
-  if (!color.match(/^rgb/)) {
-    return;
-  }
+const parse = (color): ?RGBA => {
+    const values = match(color)
 
-  // If HEX --> store the red, green, blue values in separate variables
-  const values = color.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)$/);
+    if (!values || values.length < 3) {
+        return null
+    }
 
-  if (!values) {
-    return;
-  }
+    const r = parseInt(values[0])
+    const g = parseInt(values[1])
+    const b = parseInt(values[2])
 
-  r = values[1];
-  g = values[2];
-  b = values[3];
+    const a = (values.length > 3) ? values[3] : 0
 
-  a = (values.length > 4) ? values[4] : 0
-
-  return { r, g, b, a }
+    return { r, g, b, a }
 }
 
 export default parse

@@ -1,2 +1,1 @@
-import { isDarkColor } from './isDarkColor'
-export default isDarkColor
+export { default as isLuminous } from "./luminance"

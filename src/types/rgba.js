@@ -1,9 +1,8 @@
-
-type RGBA = {
+export type RGBA = {
   r: number,
   b: number,
   g: number,
   a: number
 };
 
-export default RGBA
+export type RGBCapture = [string, string, string]

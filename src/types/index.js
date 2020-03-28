@@ -1,2 +1,3 @@
-// @flow
-export { default as RGBA } from "./rgba.js"
+export type { RGBA, RGBCapture } from "./rgba"
+
+export type { Options } from "./options"
