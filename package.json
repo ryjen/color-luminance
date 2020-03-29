@@ -4,8 +4,8 @@
   "description": "Detects if a color is dark or light. It is based on the w3 documentation for color luminance: https://www.w3.org/TR/WCAG20/#relativeluminancedef",
   "main": "dist/index.js",
   "scripts": {
-    "test": "npx flow && jest --config .jestrc.json",
-    "build": "npm test && npx babel src -d dist",
+    "test": "npx flow && jest --config .jestrc.json src",
+    "build": "npm test && npx babel src --out-file index.js --ignore 'src/**/*.test.js'",
     "prepublish": "npm run build"
   },
   "repository": {
