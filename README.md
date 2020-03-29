@@ -58,7 +58,7 @@ const options = {
   override: {
     "#010101": true // force color to be luminous
   },
-  thresholds: {
+  threshold: {
     alpha: 75, // default threshold for alpha to be luminous
     luminance: 0.17 // default threshold for luminance calculation
   }

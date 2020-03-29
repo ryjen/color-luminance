@@ -1,11 +1,11 @@
+import type { Thresholds } from "types/config"
 
-// custom functionality
+// a map of color overrides
+export type Overrides = {
+  [string]: boolean
+}
+
 export type Options = {
-  thresholds: {
-    alpha: number,
-    luminance: number
-  },
-  override: {
-    [string]: boolean
-  }
+  override: Overrides,
+  threshold: Thresholds
 }

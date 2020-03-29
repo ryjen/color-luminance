@@ -1,6 +1,6 @@
 import type { RGBA, Options } from "types"
 import parse from "./parser"
-import { isOverriden } from "./options"
+import Config from "./config"
 
 const calculate = (color: RGBA) => {
   let colorArray = [color.r / 255, color.g / 255, color.b / 255].map(v => {
@@ -15,10 +15,13 @@ const calculate = (color: RGBA) => {
 }
 
 const isLuminous = (color: string, options?: Options): boolean => {
-  const override = isOverriden(color, options)
+
+  const config = Config(options)
+
+  const override = config.getOverride(color)
     
-  if (override !== null) {
-    return !!override
+  if (override) {
+    return override.value
   }
 
   const rgba = parse(color)
@@ -27,16 +30,12 @@ const isLuminous = (color: string, options?: Options): boolean => {
     return false
   }
 
-  const alphaThreshold = options?.thresholds.alpha || 75
-
   // alpha is luminance
-  if (rgba.a <= alphaThreshold) {
+  if (rgba.a <= config.threshold.alpha) {
     return true
   }
 
-  const threshold = options?.thresholds.luminance || 0.170
-
-  return calculate(rgba) > threshold
+  return calculate(rgba) > config.threshold.luminance
 }
 
 export default isLuminous

@@ -1,3 +1,5 @@
 export type { RGBA } from "./rgba"
 
-export type { Options } from "./options"
+export type { Options, Overrides } from "./options"
+
+export type { Config, OverrideValue } from "./config"
