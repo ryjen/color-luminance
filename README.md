@@ -54,13 +54,12 @@ import isLuminous from "color-luminance";
 
 const options = {
   override: {
-    "#319FB5": false,
-    "#383939": true
+    "#010101": true
   }
 };
 
-isLuminous("#319FB5"); // true
-isLuminous("#319FB5", options); // false
+isLuminous("#010101"); // false
+isLuminous("#010101", options); // now true
 ```
 
 ## Credits
