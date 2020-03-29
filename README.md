@@ -47,14 +47,20 @@ const someColor = "#ff9900"; // some sort of orange
 console.log(isLuminous(someColor)); // try it to find out
 ```
 
-Optionally, you can override the return value for certain colors:
+### Options
+
+You can override the return value for certain colors and specify thresholds:
 
 ```javascript
 import isLuminous from "color-luminance";
 
 const options = {
   override: {
-    "#010101": true
+    "#010101": true // force color to be luminous
+  },
+  thresholds: {
+    alpha: 75, // default threshold for alpha to be luminous
+    luminance: 0.17 // default threshold for luminance calculation
   }
 };
 

@@ -27,12 +27,16 @@ const isLuminous = (color: string, options?: Options): boolean => {
     return false
   }
 
+  const alphaThreshold = options?.thresholds.alpha || 75
+
   // alpha is luminance
-  if (rgba.a <= 75) {
+  if (rgba.a <= alphaThreshold) {
     return true
   }
 
-  return calculate(rgba) > 0.170
+  const threshold = options?.thresholds.luminance || 0.170
+
+  return calculate(rgba) > threshold
 }
 
 export default isLuminous

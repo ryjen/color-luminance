@@ -14,6 +14,7 @@ all=true
 module.name_mapper='types' -> '<PROJECT_ROOT>/src/types'
 module.name_mapper='parsers*' -> '<PROJECT_ROOT>/src/parsers'
 module.name_mapper='matchers*' -> '<PROJECT_ROOT>/src/matchers'
+esproposal.optional_chaining=enable
 
 [strict]
 
